@@ -1,7 +1,7 @@
 {
-    "name": "Shiori",
-    "short_name": "Shiori",
-    "start_url": "/",
+    "name": "Test",
+    "short_name": "Test",
+    "start_url": "/check_env_js",
     "display": "standalone",
     "orientation": "landscape-primary",
     "background_color": "#fff",
