@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<head>
+    <title></title>
+    <link rel="manifest" href="manifest.json">
+    <script src="pwa.js"></script>
+    <script>
+        function init(){
+            // OS判定
+            let ua = window.navigator.userAgent.toLowerCase();
+            
+            if(ua.indexOf("windows nt") !== -1) {
+                document.getElementById("os").innerHTML = "Windows";
+            } else if(ua.indexOf("android") !== -1) {
+                document.getElementById("os").innerHTML = "Android";
+            } else if(ua.indexOf("iphone") !== -1 || ua.indexOf("ipad") !== -1) {
+                document.getElementById("os").innerHTML = "iOS";
+            } else if(ua.indexOf("mac os x") !== -1) {
+                document.getElementById("os").innerHTML = "macOS";
+            } else {
+                document.getElementById("os").innerHTML = "OS NOT FOUND";
+            }
+                        
+            // PWA判定
+            if(window.matchMedia('(display-mode: standalone)').matches){
+                document.getElementById("pwa").innerHTML = "PWA";
+            } else {
+                document.getElementById("pwa").innerHTML = "NOT PWA";
+            }
+            
+        }
+    </script>
+</head>
+<body onload="init()">
+    <div>
+        <span>実行OS：</span>
+        <span id="os"></span>
+    </div>
+    <div>
+        <span>PWA：</span>
+        <span id="pwa"></span>
+    </div>
+</body>
+</html>
