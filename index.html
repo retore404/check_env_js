@@ -19,13 +19,17 @@
             } else {
                 document.getElementById("os").innerHTML = "OS NOT FOUND";
             }
-                        
+
             // PWA判定
             if(window.matchMedia('(display-mode: standalone)').matches){
                 document.getElementById("pwa").innerHTML = "PWA";
             } else {
                 document.getElementById("pwa").innerHTML = "NOT PWA";
             }
+
+            // 画面向き
+            let orientation = screen.msOrientation || screen.mozOrientation || (screen.orientation || {}).type;
+            document.getElementById("orientation").innerHTML = orientation;
             
         }
     </script>
@@ -38,6 +42,10 @@
     <div>
         <span>PWA：</span>
         <span id="pwa"></span>
+    </div>
+    <div>
+        <span>Orientation：</span>
+        <span id="orientation"></span>
     </div>
 </body>
 </html>
