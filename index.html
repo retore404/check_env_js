@@ -28,7 +28,10 @@
             }
 
             // 画面向き
-            let orientation = screen.msOrientation || screen.mozOrientation || (screen.orientation || {}).type;
+            let orientation = screen && screen.orientation && screen.orientation.angle;
+            if(orientation == undefined) { //WebKit
+                orientation = window.orientation;
+            }
             document.getElementById("orientation").innerHTML = orientation;
             
         }
