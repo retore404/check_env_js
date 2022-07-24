@@ -27,28 +27,40 @@
                 document.getElementById("pwa").innerHTML = "NOT PWA";
             }
 
-            // 画面向き
-            let orientation = screen && screen.orientation && screen.orientation.angle;
-            if(orientation == undefined) { //WebKit
-                orientation = window.orientation;
-            }
-            document.getElementById("orientation").innerHTML = orientation;
-            
+            // 縦定義サイズ
+            alert("Start to change div height.");
+            document.getElementById("wrapper").classList.add("temp");
+            alert("Start to re-change div height.");
+            document.getElementById("wrapper").classList.remove("temp");            
         }
     </script>
+    <style>
+        .all {
+            height: 100vh;
+            height: 100dvh;
+            background-color: aquamarine;
+        }
+
+        .temp {
+            height: 75vh !important;
+            height: 75dvh !important;
+        }
+    </style>
 </head>
 <body onload="init()">
-    <div>
-        <span>実行OS：</span>
-        <span id="os"></span>
-    </div>
-    <div>
-        <span>PWA：</span>
-        <span id="pwa"></span>
-    </div>
-    <div>
-        <span>Orientation：</span>
-        <span id="orientation"></span>
+    <div id="wrapper" class="all">
+        <div>
+            <span>実行OS：</span>
+            <span id="os"></span>
+        </div>
+        <div>
+            <span>PWA：</span>
+            <span id="pwa"></span>
+        </div>
+        <div>
+            <span>Orientation：</span>
+            <span id="orientation"></span>
+        </div>
     </div>
 </body>
 </html>
